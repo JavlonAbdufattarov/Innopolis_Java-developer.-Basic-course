@@ -6,7 +6,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             String letter = scanner.nextLine();
-            addLetter(letter);
+            countArrow(letter);
             if(Objects.equals(letter, "q")){
                 break;
             }
@@ -23,5 +23,18 @@ public class Main {
             Letter=Letter+"q";
         }
         System.out.println(Letter);
+    }
+
+    public static int countArrow(String symbols){
+        char[] сharacterDivision = symbols.toCharArray();
+        int count = 0;
+        for (int i = 0; i < сharacterDivision.length-4; i++) {
+            String fourth = new String(сharacterDivision, i, 5);
+            if(Objects.equals(fourth, ">>-->") ||Objects.equals(fourth, "<--<<")){
+                count++;
+            }
+        }
+        System.out.println(count);
+        return count;
     }
 }
